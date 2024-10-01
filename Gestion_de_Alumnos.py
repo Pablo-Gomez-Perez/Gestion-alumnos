@@ -40,6 +40,8 @@
 #        
 #    }
 
+# -*- coding: utf-8 -*-
+
 from functools import reduce
 
 
@@ -81,16 +83,16 @@ def get_input(prompt, callback):
     return callback(input(prompt))
 
 def main_menu(estudiantes):
-    print("\nSistema de Gestión de Estudiantes")
-    print("1. Añadir un nuevo estudiante")
-    print("2. Añadir una nueva materia a un estudiante existente")
-    print("3. Actualizar la calificación de una materia")
+    print("\nSistema de Gestion de Estudiantes")
+    print("1. Agregar un nuevo estudiante")
+    print("2. Agregar una nueva materia a un estudiante existente")
+    print("3. Actualizar la calificacion de una materia")
     print("4. Eliminar un estudiante")
     print("5. Calcular el promedio de calificaciones de un estudiante")
     print("6. Listar todos los estudiantes con sus calificaciones")
     print("7. Salir")
 
-    get_input("Selecciona una opción: ", lambda opcion: process_option(opcion, estudiantes))
+    get_input("Selecciona una opcion: ", lambda opcion: process_option(opcion, estudiantes))
 
 def process_option(opcion, estudiantes):
     if opcion == "1":
@@ -107,7 +109,7 @@ def process_option(opcion, estudiantes):
     elif opcion == "2":
         get_input("Introduce el nombre del estudiante: ", lambda nombre:
             get_input("Introduce la nueva materia: ", lambda materia:
-                get_input("Introduce la calificación: ", lambda calificacion:
+                get_input("Introduce la calificacion: ", lambda calificacion:
                     main_menu(add_subject(estudiantes, nombre, materia, int(calificacion)))
                 )
             )
@@ -116,7 +118,7 @@ def process_option(opcion, estudiantes):
     elif opcion == "3":
         get_input("Introduce el nombre del estudiante: ", lambda nombre:
             get_input("Introduce la materia a actualizar: ", lambda materia:
-                get_input("Introduce la nueva calificación: ", lambda nueva_calificacion:
+                get_input("Introduce la nueva calificacion: ", lambda nueva_calificacion:
                     main_menu(update_grade(estudiantes, nombre, materia, int(nueva_calificacion)))
                 )
             )
@@ -142,7 +144,7 @@ def process_option(opcion, estudiantes):
         print("Saliendo del sistema...")
 
     else:
-        print("Opción no válida, intenta de nuevo.")
+        print("Opcion no valida, intenta de nuevo.")
         main_menu(estudiantes)
 
 
